@@ -463,7 +463,9 @@ navigation menu
    transform: translateY(-50%) rotate(-90deg);
    left:-60px
 }
-
+.nav-menu .copyright-text a{
+   color: var(--skin-color);
+}
 
 /*-----------
 home section
