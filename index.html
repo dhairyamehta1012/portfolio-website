@@ -1137,22 +1137,22 @@
        </div>
        <div class="row">
          <div class="contact-form">
-            <form>
+            <form method="post" autocomplete="off" name="contact-us">
                   <div class="row">
                       <div class="w-50">
                          <div class="input-group outer-shadow hover-in-shadow">
-                           <input type="text" placeholder="Name" class="input-control">
+                           <input type="text" placeholder="Name" class="input-control" name="name" required>
                          </div>
                          <div class="input-group outer-shadow hover-in-shadow">
-                           <input type="text" placeholder="Email" class="input-control">
+                           <input type="text" placeholder="Email" class="input-control" name="email" required>
                          </div>
                          <div class="input-group outer-shadow hover-in-shadow">
-                           <input type="text" placeholder="Subject" class="input-control">
+                           <input type="text" placeholder="Subject" class="input-control" name="subject">
                          </div>
                       </div>
                       <div class="w-50">
                          <div class="input-group outer-shadow hover-in-shadow">
-                            <textarea class="input-control" placeholder="Message"></textarea>
+                            <textarea class="input-control" placeholder="Message" name="message"></textarea>
                          </div>
                       </div>
                   </div>
@@ -1225,6 +1225,22 @@
 <script src="js/main.js"></script>
 <!-- style switcher js -->
 <script src="js/style-switcher.js"></script>
+  
+<script>
+   const scriptURL = 'https://script.google.com/macros/s/AKfycbyHsccn5MbTgrPdWPI_VSQlzohoAEHKQQyyiVz8EDbI_2EsCPBg-LKV-854y6hNUfXLjQ/exec'
+   const form = document.forms['contact-us']
+ 
+   form.addEventListener('submit', e => {
+     e.preventDefault()
+     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+       .then(response => alert("Hey! Glad to hear from you. We will connect soon."))
+       .catch(error => console.error('Error!', error.message))
+   })
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
 </body>
 </html>
 
